@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout mdrawerlayout;
     private ActionBarDrawerToggle mtoogle;
@@ -37,7 +37,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                switch (menuItem.getItemId()){
+                    case R.id.db:
+                        navigationView.setCheckedItem(R.id.db);
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new DashboardFragment()).commit();
+                        return true;
+                    case R.id.event:
+                        navigationView.setCheckedItem(R.id.event);
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new EventsFragment()).commit();
+                        return true;
+                    case R.id.search:
+                        navigationView.setCheckedItem(R.id.search);
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new SearchFragment()).commit();
+                        return true;
+                    case R.id.settings:
+                        navigationView.setCheckedItem(R.id.settings);
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new SettingsFragment()).commit();
+                        return true;
+                    case R.id.activities:
+                        navigationView.setCheckedItem(R.id.activities);
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new ActivitiesFragment()).commit();
+                        return true;
+                }
+
+                return false;
+            }
+        });
+
 
         if(savedInstanceState==null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardFragment()).commit();
@@ -51,24 +81,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (menuItem.getItemId()){
             case R.id.db:
+                bottomNavigationView.setSelectedItemId(R.id.db);
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new DashboardFragment()).commit();
                 break;
             case R.id.event:
+                bottomNavigationView.setSelectedItemId(R.id.event);
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new EventsFragment()).commit();
                 break;
             case R.id.search:
+                bottomNavigationView.setSelectedItemId(R.id.search);
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new SearchFragment()).commit();
                 break;
             case R.id.settings:
+                bottomNavigationView.setSelectedItemId(R.id.settings);
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new SettingsFragment()).commit();
                 break;
             case R.id.activities:
+                bottomNavigationView.setSelectedItemId(R.id.activities);
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new ActivitiesFragment()).commit();
                 break;
             case R.id.logout:
                 Toast.makeText(MainActivity.this, "Log out", Toast.LENGTH_SHORT).show();
         }
-
 
         mdrawerlayout.closeDrawer(GravityCompat.START);
         return true;
