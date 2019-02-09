@@ -5,25 +5,25 @@
     <item
         android:id="@+id/event"
         android:title="Events"
-        android:icon="@drawable/ic_event_black_24dp"/>
+        android:icon="@drawable/ic_event"/>
 
     <item
         android:id="@+id/search"
         android:title="Search"
-        android:icon="@drawable/ic_search_black_24dp" />
+        android:icon="@drawable/ic_search" />
 
     <item
         android:id="@+id/db"
         android:title="Dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp" />
+        android:icon="@drawable/ic_dashboard" />
 
     <item
         android:id="@+id/settings"
         android:title="Settings"
-        android:icon="@drawable/ic_settings_black_24dp"/>
+        android:icon="@drawable/ic_settings"/>
     <item
         android:id="@+id/activities"
         android:title="Activities"
-        android:icon="@drawable/ic_trending_up_black_24dp"/>
+        android:icon="@drawable/ic_activities"/>
 
 </menu>
