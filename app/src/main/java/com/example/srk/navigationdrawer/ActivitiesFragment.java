@@ -24,7 +24,8 @@ public class ActivitiesFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_activities,container,false);
         tabLayout = v.findViewById(R.id.tablayout_id);
         viewPager = v.findViewById(R.id.viewpager_id);
-        adapter = new ViewPagerAdapter(getFragmentManager());
+        viewPager.setOffscreenPageLimit(3);
+        adapter = new ViewPagerAdapter(getChildFragmentManager());
 
         // Add Fragment Here
         adapter.AddFragment(new FragmentBookBank(),"");
@@ -45,6 +46,6 @@ public class ActivitiesFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
     }
+
 }
