@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="170dp"
     android:orientation="vertical"
-    android:background="@drawable/vashu"
+    android:background="@drawable/book_profile"
     android:paddingTop="40dp"
     android:paddingLeft="20dp">
 

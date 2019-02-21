@@ -25,7 +25,7 @@
             android:layout_alignParentBottom="true"
             app:itemIconTint="@drawable/item_selected"
             app:itemTextColor="@drawable/item_selected"
-            app:menu="@menu/menu"
+            app:menu="@menu/bottommenu"
             android:background="#F3F2F2"
             app:elevation="8dp"/>
 

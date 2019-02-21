@@ -18,12 +18,14 @@
         android:icon="@drawable/ic_dashboard" />
 
     <item
-        android:id="@+id/settings"
-        android:title="Settings"
-        android:icon="@drawable/ic_settings"/>
-    <item
         android:id="@+id/activities"
         android:title="Activities"
         android:icon="@drawable/ic_activities"/>
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_person_black_24dp"/>
+
 
 </menu>

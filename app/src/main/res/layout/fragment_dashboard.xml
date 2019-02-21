@@ -1,16 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:background="#85fdb9">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dashboard \nFragment"
-        android:textAlignment="center"
-        android:textSize="40dp"/>
-</RelativeLayout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/colorPrimary"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:id="@+id/image_layout">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPa"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:clipToPadding="false"
+                android:overScrollMode="never" />
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewPa"
+                app:tabBackground="@drawable/selector_tab"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="0dp"
+                android:layout_marginTop="-50dp"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardview1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:cardCornerRadius="8dp"
+            android:clickable="true"
+            android:layout_below="@+id/image_layout"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="-20dp"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:background="@color/colorPrimary">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_account_balance_wallet_black_24dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fine Amount"
+                    android:textSize="25sp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold|italic"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="55dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:textSize="25sp"
+                    android:layout_marginTop="12dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="40dp"
+                    android:textColor="#ffffff"/>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_rupee_indian"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="10dp"/>
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/piechart"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_below="@id/cardview1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+        <com.hadiidbouk.charts.ChartProgressBar
+            android:layout_below="@+id/piechart"
+            android:layout_marginTop="-20dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/ChartProgressBar"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            app:hdBarCanBeClick="true"
+            app:hdBarHeight="170dp"
+            app:hdBarWidth="7dp"
+            app:hdBarRadius="10dp"
+            app:hdMaxValue="10"
+            app:hdEmptyColor="@color/empty"
+            app:hdProgressColor="@color/progress"
+            app:hdProgressClickColor="@color/progress_click"
+            app:hdPinBackgroundColor="@color/pin_background"
+            app:hdPinTextColor="@color/pin_text"
+            app:hdPinPaddingBottom="5dp"
+            app:hdBarTitleColor="@color/bar_title_color"
+            app:hdBarTitleTxtSize="12sp"
+            app:hdPinTxtSize="17sp"
+            app:hdPinMarginTop="10dp"
+            app:hdPinMarginBottom="55dp"
+            app:hdPinMarginEnd="22dp"
+            app:hdBarTitleMarginTop="9dp"
+            app:hdPinDrawable="@drawable/ic_pin"
+            app:hdProgressDisableColor="@color/progress_disable"
+            app:hdBarTitleSelectedColor="@color/bar_title_selected_color"/>
+
+    </RelativeLayout>
+</ScrollView>

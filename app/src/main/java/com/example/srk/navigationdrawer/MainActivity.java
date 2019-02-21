@@ -3,8 +3,6 @@ package com.example.srk.navigationdrawer;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -23,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     BottomNavigationView bottomNavigationView;
 
     private ActionBar actionBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +46,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 switch (menuItem.getItemId()){
                     case R.id.db:
-                        actionBar.setElevation(8);    //Remove Shadow From the action bar
+                        actionBar.setElevation(0);    //Remove Shadow From the action bar
                         navigationView.setCheckedItem(R.id.db);
-                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new DashboardFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in, R.anim.fade_out).replace(R.id.fragment_container, new DashboardFragment()).commit();
                         return true;
                     case R.id.event:
                         actionBar.setElevation(8);    //Remove Shadow From the action bar
@@ -59,12 +58,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     case R.id.search:
                         actionBar.setElevation(8);    //Remove Shadow From the action bar
                         navigationView.setCheckedItem(R.id.search);
-                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new SearchFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in, R.anim.fade_out).replace(R.id.fragment_container, new SearchFragment()).commit();
                         return true;
-                    case R.id.settings:
+                    case R.id.profile:
                         actionBar.setElevation(8);    //Remove Shadow From the action bar
-                        navigationView.setCheckedItem(R.id.settings);
-                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new SettingsFragment()).commit();
+                        navigationView.setCheckedItem(R.id.profile);
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new ProfileFragment()).commit();
                         return true;
                     case R.id.activities:
                         actionBar.setElevation(0);    //Remove Shadow From the action bar
@@ -100,9 +99,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 bottomNavigationView.setSelectedItemId(R.id.search);
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new SearchFragment()).commit();
                 break;
-            case R.id.settings:
-                bottomNavigationView.setSelectedItemId(R.id.settings);
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new SettingsFragment()).commit();
+            case R.id.profile:
+                bottomNavigationView.setSelectedItemId(R.id.profile);
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new ProfileFragment()).commit();
                 break;
             case R.id.activities:
                 bottomNavigationView.setSelectedItemId(R.id.activities);
