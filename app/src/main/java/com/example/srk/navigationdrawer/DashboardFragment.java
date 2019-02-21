@@ -39,12 +39,12 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_dashboard,container,false);
 
-        viewPager=(ViewPager)v.findViewById(R.id.viewPa);
+        viewPager = v.findViewById(R.id.viewPa);
         viewPager.setPadding(50,0,50,0);
 
         ownPagerAdapter own = new ownPagerAdapter(getActivity());
         viewPager.setAdapter(own);
-        tabLayout=(TabLayout)v.findViewById(R.id.tabs);
+        tabLayout = v.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager,true);
 
         Timer timer=new Timer();
@@ -61,10 +61,12 @@ public class DashboardFragment extends Fragment {
 
         @Override
         public void run() {
-            DashboardFragment.this.runOnUiThread(new Runnable() {
+            if(getActivity()!= null)
+            getActivity().runOnUiThread(new Runnable() {
 
                 @Override
                 public void run() {
+
                         if(viewPager.getCurrentItem()==0){
                             viewPager.setCurrentItem(1);
                         }else if(viewPager.getCurrentItem()==1){
@@ -77,9 +79,7 @@ public class DashboardFragment extends Fragment {
         }
     }
 
-    private void runOnUiThread(Runnable runnable) {
 
-    }
 
     private void piechart() {
 
@@ -150,7 +150,7 @@ public class DashboardFragment extends Fragment {
         data = new com.hadiidbouk.charts.BarData("Sep", 3.3f, "3.3₹");
         dataList.add(data);
 
-        mChart = (ChartProgressBar) v.findViewById(R.id.ChartProgressBar);
+        mChart =  v.findViewById(R.id.ChartProgressBar);
 
         mChart.setDataList(dataList);
         mChart.build();
@@ -168,7 +168,6 @@ public class DashboardFragment extends Fragment {
                 mChart.resetBarValues();
             }
         }, 2000);
-
 
     }
     
