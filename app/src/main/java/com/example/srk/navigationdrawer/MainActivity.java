@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    // this is use for double back button exit
     @Override
     public void onBackPressed() {
 
