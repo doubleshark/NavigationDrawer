@@ -7,6 +7,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".Activity.Events_Detail">
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:id="@+id/appbar"
@@ -58,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="10dp">
+            android:paddingTop="20dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,6 +85,24 @@
                 android:text="Desc"
                 />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/url_textview"
+                android:textColor="@color/colorPrimary"
+                android:layout_below="@id/title"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="Click Here For More Information."
+                android:linksClickable="true"
+                android:textStyle="bold|italic"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                android:onClick="urlclick"
+                />
+
 
         </LinearLayout>
 
@@ -102,9 +121,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="410dp"
+        android:layout_marginBottom="380dp"
         android:layout_height="wrap_content"
-        tools:ignore="UnusedAttribute">
+        tools:ignore="UnusedAttribute"
+        android:elevation="8dp">
+
         <ImageView
             android:src="@drawable/ic_date"
             android:layout_width="18dp"

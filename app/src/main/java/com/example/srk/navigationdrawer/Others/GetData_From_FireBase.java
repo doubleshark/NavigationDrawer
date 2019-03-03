@@ -5,6 +5,7 @@ public class GetData_From_FireBase {
     String image;
     String description;
     String time;
+    String url;
 
 
     //Null Constructor for firebase
@@ -43,5 +44,13 @@ public class GetData_From_FireBase {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

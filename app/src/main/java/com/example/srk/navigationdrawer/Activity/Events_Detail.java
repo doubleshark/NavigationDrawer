@@ -1,6 +1,8 @@
 package com.example.srk.navigationdrawer.Activity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -13,6 +15,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -39,6 +42,8 @@ public class Events_Detail extends AppCompatActivity implements AppBarLayout.OnO
     private ImageView mimageView;
     TextView titleview, timeview, descview;
     DatabaseReference dataref;
+
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +87,7 @@ public class Events_Detail extends AppCompatActivity implements AppBarLayout.OnO
                 String title = dataSnapshot.child("title").getValue().toString();
                 String time = dataSnapshot.child("time").getValue().toString();
                 String descr = dataSnapshot.child("description").getValue().toString();
+                url = dataSnapshot.child("url").getValue().toString();
                 Glide.with(Events_Detail.this).load(image).transition(DrawableTransitionOptions.withCrossFade()).listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
@@ -143,5 +149,12 @@ public class Events_Detail extends AppCompatActivity implements AppBarLayout.OnO
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    public void urlclick(View view) {
+
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 }
