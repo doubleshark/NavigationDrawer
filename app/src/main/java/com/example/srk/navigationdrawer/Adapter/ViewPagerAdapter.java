@@ -1,4 +1,4 @@
-package com.example.srk.navigationdrawer;
+package com.example.srk.navigationdrawer.Adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

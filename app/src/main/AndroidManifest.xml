@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"
+        <activity android:name=".Activity.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,10 +18,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Main2Activity"
-            android:parentActivityName=".Main2Activity"
+            android:name=".Activity.Main2Activity"
+            android:parentActivityName=".Activity.Main2Activity"
             android:theme="@style/AppTheme.SlidrActivityTheme" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.MainActivity">
         </activity>
     </application>
 

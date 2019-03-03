@@ -1,7 +1,6 @@
-package com.example.srk.navigationdrawer;
+package com.example.srk.navigationdrawer.Activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +8,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.srk.navigationdrawer.R;
 
 public class SplashActivity extends AppCompatActivity {
 

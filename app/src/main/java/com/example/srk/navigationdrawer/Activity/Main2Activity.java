@@ -1,10 +1,11 @@
-package com.example.srk.navigationdrawer;
+package com.example.srk.navigationdrawer.Activity;
 
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.example.srk.navigationdrawer.R;
 import com.r0adkll.slidr.Slidr;
 
 

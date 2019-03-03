@@ -1,4 +1,4 @@
-package com.example.srk.navigationdrawer;
+package com.example.srk.navigationdrawer.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -6,10 +6,12 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.srk.navigationdrawer.R;
+import com.example.srk.navigationdrawer.Adapter.ViewPagerAdapter;
 
 public class ActivitiesFragment extends Fragment {
 

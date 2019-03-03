@@ -1,4 +1,4 @@
-package com.example.srk.navigationdrawer;
+package com.example.srk.navigationdrawer.Activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -14,6 +14,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.example.srk.navigationdrawer.Fragments.DashboardFragment;
+import com.example.srk.navigationdrawer.Fragments.EventsFragment;
+import com.example.srk.navigationdrawer.Fragments.ProfileFragment;
+import com.example.srk.navigationdrawer.Fragments.SearchFragment;
+import com.example.srk.navigationdrawer.Fragments.ActivitiesFragment;
+import com.example.srk.navigationdrawer.R;
+
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

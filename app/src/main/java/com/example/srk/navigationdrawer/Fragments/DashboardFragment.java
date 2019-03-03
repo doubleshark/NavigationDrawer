@@ -1,4 +1,4 @@
-package com.example.srk.navigationdrawer;
+package com.example.srk.navigationdrawer.Fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,11 +8,12 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.srk.navigationdrawer.R;
+import com.example.srk.navigationdrawer.Adapter.ownPagerAdapter;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
