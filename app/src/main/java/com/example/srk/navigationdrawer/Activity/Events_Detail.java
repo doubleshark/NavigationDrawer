@@ -45,6 +45,7 @@ public class Events_Detail extends AppCompatActivity implements AppBarLayout.OnO
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events__detail);
 
+        
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
@@ -129,10 +130,10 @@ public class Events_Detail extends AppCompatActivity implements AppBarLayout.OnO
         int maxScroll = appBarLayout.getTotalScrollRange();
         float percentage = (float) Math.abs(verticalOffset) / (float) maxScroll;
 
-        if (percentage == 1f && isHideToolbarView) {
+        if (percentage == 0f && isHideToolbarView) {
             date_bheviour.setVisibility(View.GONE);
             isHideToolbarView = !isHideToolbarView;
-        } else if (percentage < 1f && isHideToolbarView) {
+        } else if (percentage < 0f && isHideToolbarView) {
             date_bheviour.setVisibility(View.GONE);
             isHideToolbarView = !isHideToolbarView;
         }
