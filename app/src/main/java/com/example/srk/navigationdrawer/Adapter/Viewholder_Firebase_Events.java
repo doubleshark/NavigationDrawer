@@ -28,6 +28,22 @@ public class Viewholder_Firebase_Events extends RecyclerView.ViewHolder {
         super(itemView);
 
         mview = itemView;
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mclickListener.onItemClick(v,getAdapterPosition());
+            }
+        });
+        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                mclickListener.onItemLongClick(v,getAdapterPosition());
+                return true;
+            }
+        });
+
+
     }
 
 
@@ -55,6 +71,15 @@ public class Viewholder_Firebase_Events extends RecyclerView.ViewHolder {
                 return false;
             }
         }).into(mimageView);
+    }
 
+    //Declaration of cutstom onClickListner
+    private Viewholder_Firebase_Events.clickListener mclickListener;
+    public interface clickListener{
+        void onItemClick(View view,int position);
+        void onItemLongClick(View view,int position);
+    }
+    public void setOnClickListener(Viewholder_Firebase_Events.clickListener clicklistener){
+        mclickListener=clicklistener;
     }
 }

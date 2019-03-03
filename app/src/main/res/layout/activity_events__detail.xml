@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".Activity.Events_Detail">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@+id/appbar"
+        android:layout_height="250dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                android:id="@+id/mim"
+                app:layout_collapseMode="parallax" />
+            <ProgressBar
+                android:id="@+id/deatilProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@android:style/Widget.ProgressBar.Small"
+                />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffe5e5e5"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textStyle="bold"
+                android:textColor="@color/colorTextTitle"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="Title"
+                android:textSize="23sp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/titledeatail"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/descdetail"
+                android:textColor="@color/colorTextSubtitle"
+                android:layout_below="@id/title"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Desc"
+                />
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+    <FrameLayout
+        android:id="@+id/dates"
+        app:layout_anchor="@id/appbar"
+        android:adjustViewBounds="true"
+        app:layout_anchorGravity="right|end|bottom"
+        android:clickable="false"
+        android:layout_below="@id/img"
+        android:background="@drawable/round_white"
+        android:layout_width="wrap_content"
+        android:padding="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="410dp"
+        android:layout_height="wrap_content"
+        tools:ignore="UnusedAttribute">
+        <ImageView
+            android:src="@drawable/ic_date"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+        <TextView
+            android:textColor="#606060"
+            android:id="@+id/da"
+            android:layout_marginLeft="27dp"
+            android:layout_marginRight="10dp"
+            android:text="01 January 1990"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

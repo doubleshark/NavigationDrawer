@@ -1,5 +1,6 @@
 package com.example.srk.navigationdrawer.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,9 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.srk.navigationdrawer.Activity.Events_Detail;
 import com.example.srk.navigationdrawer.Adapter.Viewholder_Firebase_Events;
-import com.example.srk.navigationdrawer.GetData_From_FireBase;
+import com.example.srk.navigationdrawer.Others.GetData_From_FireBase;
 import com.example.srk.navigationdrawer.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -22,8 +25,6 @@ public class EventsFragment extends Fragment {
     private RecyclerView mrecycler;
     public static FirebaseDatabase mfirebaseDatabase;
     private DatabaseReference mdatabaseRef;
-
-    static boolean calledAlready_offlinemode = false;
 
 
     @Nullable
@@ -36,10 +37,6 @@ public class EventsFragment extends Fragment {
         mrecycler.setHasFixedSize(true);
         mrecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        if (!calledAlready_offlinemode) {
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-            calledAlready_offlinemode = true;
-        }
 
         mfirebaseDatabase = FirebaseDatabase.getInstance();
         mdatabaseRef = mfirebaseDatabase.getReference("Data");
@@ -56,6 +53,22 @@ public class EventsFragment extends Fragment {
             @Override
             public Viewholder_Firebase_Events onCreateViewHolder(ViewGroup parent, int viewType) {
                 Viewholder_Firebase_Events h = super.onCreateViewHolder(parent, viewType);
+                h.setOnClickListener(new Viewholder_Firebase_Events.clickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        TextView title=(TextView)view.findViewById(R.id.title);
+                        String tit=title.getText().toString();
+
+                        Intent intent=new Intent(view.getContext(), Events_Detail.class);
+                        intent.putExtra("title",tit);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onItemLongClick(View view, int position) {
+
+                    }
+                });
 
                 return h;
             }

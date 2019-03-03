@@ -1,4 +1,4 @@
-package com.example.srk.navigationdrawer;
+package com.example.srk.navigationdrawer.Others;
 
 public class GetData_From_FireBase {
     String title;
