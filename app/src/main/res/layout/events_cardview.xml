@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="6dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img"
+                android:transitionName="img"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop" />
+            <ImageView
+                android:id="@+id/shadow_top"
+                android:layout_height="80dp"
+                android:src="@drawable/shadow"
+                android:layout_alignBottom="@id/img"
+                android:layout_width="match_parent"
+
+                />
+            <ProgressBar
+                android:id="@+id/progress_load_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                style="@android:style/Widget.ProgressBar.Small"
+                />
+
+            <FrameLayout
+                android:id="@+id/layoutDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img"
+                android:background="@drawable/round_white"
+                android:padding="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="-50dp"
+                >
+                <ImageView
+                    android:src="@drawable/ic_date"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    />
+                <TextView
+                    android:textColor="#606060"
+                    android:id="@+id/time"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginRight="10dp"
+                    android:text="01 january 19990"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textStyle="bold"
+                android:textColor="@color/colorTextTitle"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="Title"
+                android:textSize="17dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/img"
+                android:id="@+id/title"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:id="@+id/desc"
+                android:layout_below="@id/title"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="7dp"
+                android:text="Desc"
+                />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</FrameLayout>
