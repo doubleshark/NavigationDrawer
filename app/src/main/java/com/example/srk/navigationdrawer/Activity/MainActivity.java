@@ -141,9 +141,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (item.getItemId()){
 
-            case R.id.search:
-                Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.notification:
                 Toast.makeText(this, "notification", Toast.LENGTH_SHORT).show();
                 break;
@@ -152,8 +149,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
                 break;
+            case R.id.aboutus:
+                Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.logout:
-                Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "log out", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);

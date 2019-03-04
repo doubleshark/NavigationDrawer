@@ -108,8 +108,9 @@
 
 
     </android.support.v4.widget.NestedScrollView>
+
     <FrameLayout
-        android:id="@+id/dates"
+        android:id="@+id/framelayout_dates"
         app:layout_anchor="@id/appbar"
         android:adjustViewBounds="true"
         app:layout_anchorGravity="right|end|bottom"

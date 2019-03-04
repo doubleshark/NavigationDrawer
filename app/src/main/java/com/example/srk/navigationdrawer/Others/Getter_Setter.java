@@ -1,6 +1,6 @@
 package com.example.srk.navigationdrawer.Others;
 
-public class GetData_From_FireBase {
+public class Getter_Setter {
     String title;
     String image;
     String description;
@@ -9,7 +9,7 @@ public class GetData_From_FireBase {
 
 
     //Null Constructor for firebase
-     public GetData_From_FireBase(){
+     public Getter_Setter(){
 
      }
 //Getter and setter For geeting and setting data to views

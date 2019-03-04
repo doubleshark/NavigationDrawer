@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.srk.navigationdrawer.Activity.Events_Detail;
 import com.example.srk.navigationdrawer.Adapter.Viewholder_Firebase_Events;
-import com.example.srk.navigationdrawer.Others.GetData_From_FireBase;
+import com.example.srk.navigationdrawer.Others.Getter_Setter;
 import com.example.srk.navigationdrawer.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +26,8 @@ public class EventsFragment extends Fragment {
     public static FirebaseDatabase mfirebaseDatabase;
     private DatabaseReference mdatabaseRef;
 
+    //private LottieAnimationView lottieAnimationView;
+
 
     @Nullable
     @Override
@@ -33,7 +35,7 @@ public class EventsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_events, container, false);
 
         //Initiate RecyclerView
-        mrecycler = (RecyclerView) view.findViewById(R.id.myrecycler);
+        mrecycler = (RecyclerView) view.findViewById(R.id.recyclerview_events);
         mrecycler.setHasFixedSize(true);
         mrecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -42,24 +44,29 @@ public class EventsFragment extends Fragment {
         mdatabaseRef = mfirebaseDatabase.getReference("Data");
         mdatabaseRef.keepSynced(true);
 
+        //lottieAnimationView = (LottieAnimationView) view.findViewById(R.id.lottie_event_loading);
 
-        FirebaseRecyclerAdapter<GetData_From_FireBase, Viewholder_Firebase_Events> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<GetData_From_FireBase, Viewholder_Firebase_Events>(GetData_From_FireBase.class,
+        FirebaseRecyclerAdapter<Getter_Setter, Viewholder_Firebase_Events> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Getter_Setter, Viewholder_Firebase_Events>(Getter_Setter.class,
                 R.layout.events_cardview, Viewholder_Firebase_Events.class, mdatabaseRef) {
+
             @Override
-            protected void populateViewHolder(Viewholder_Firebase_Events viewHolder, GetData_From_FireBase model, int position) {
+            protected void populateViewHolder(Viewholder_Firebase_Events viewHolder, Getter_Setter model, int position) {
                 viewHolder.setDetails(getActivity(), model.getTitle(), model.getDescription(), model.getImage(), model.getTime());
             }
 
             @Override
             public Viewholder_Firebase_Events onCreateViewHolder(ViewGroup parent, int viewType) {
-                Viewholder_Firebase_Events h = super.onCreateViewHolder(parent, viewType);
-                h.setOnClickListener(new Viewholder_Firebase_Events.clickListener() {
+
+                Viewholder_Firebase_Events viewholder_firebase_events = super.onCreateViewHolder(parent, viewType);
+                viewholder_firebase_events.setOnClickListener(new Viewholder_Firebase_Events.clickListener() {
+
                     @Override
                     public void onItemClick(View view, int position) {
-                        TextView title=(TextView)view.findViewById(R.id.title);
+
+                        TextView title = (TextView)view.findViewById(R.id.title);
                         String tit=title.getText().toString();
 
-                        Intent intent=new Intent(view.getContext(), Events_Detail.class);
+                        Intent intent = new Intent(view.getContext(), Events_Detail.class);
                         intent.putExtra("title",tit);
                         startActivity(intent);
                     }
@@ -70,7 +77,7 @@ public class EventsFragment extends Fragment {
                     }
                 });
 
-                return h;
+                return viewholder_firebase_events;
             }
         };
 

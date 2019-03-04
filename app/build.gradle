@@ -41,7 +41,8 @@ dependencies {
     //For Image downloading and processing
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    //lottiefile
+    implementation 'com.airbnb.android:lottie:2.0.0'
 
 
 }
-apply plugin: 'com.google.gms.google-services'

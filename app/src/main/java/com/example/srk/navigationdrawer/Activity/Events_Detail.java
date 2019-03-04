@@ -35,15 +35,16 @@ public class Events_Detail extends AppCompatActivity implements AppBarLayout.OnO
 
     private Toolbar toolbar;
     private boolean isHideToolbarView = false;
-    private FrameLayout date_bheviour;
+    private FrameLayout frameLayout_dates;
     private AppBarLayout appBarLayout;
 
     //Views
     private ImageView mimageView;
-    TextView titleview, timeview, descview;
-    DatabaseReference dataref;
+    private TextView titleview, timeview, descview;
+    private ProgressBar mdeatailProgressBar;
 
-    private String url;
+    DatabaseReference dataref;
+    String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +64,7 @@ public class Events_Detail extends AppCompatActivity implements AppBarLayout.OnO
         final CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle("");
 
-        date_bheviour = (FrameLayout) findViewById(R.id.dates);
-
+        frameLayout_dates = (FrameLayout) findViewById(R.id.framelayout_dates);
 
         dataref = FirebaseDatabase.getInstance().getReference("Data");
         dataref.keepSynced(true);
@@ -73,7 +73,7 @@ public class Events_Detail extends AppCompatActivity implements AppBarLayout.OnO
         titleview = (TextView) findViewById(R.id.titledeatail);
         timeview = (TextView) findViewById(R.id.da);
         descview = (TextView) findViewById(R.id.descdetail);
-        final ProgressBar mdeatailProgressBar = (ProgressBar) findViewById(R.id.deatilProgress);
+        mdeatailProgressBar = (ProgressBar) findViewById(R.id.deatilProgress);
 
         String title = getIntent().getStringExtra("title");
         // textView.setText(title);
@@ -81,14 +81,18 @@ public class Events_Detail extends AppCompatActivity implements AppBarLayout.OnO
 
         final Query query = dataref.orderByChild("title").startAt(title).endAt(title + "\uf8ff");
         query.addChildEventListener(new ChildEventListener() {
+
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
                 String image = dataSnapshot.child("image").getValue().toString();
                 String title = dataSnapshot.child("title").getValue().toString();
                 String time = dataSnapshot.child("time").getValue().toString();
                 String descr = dataSnapshot.child("description").getValue().toString();
                 url = dataSnapshot.child("url").getValue().toString();
+
                 Glide.with(Events_Detail.this).load(image).transition(DrawableTransitionOptions.withCrossFade()).listener(new RequestListener<Drawable>() {
+
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         return false;
@@ -137,10 +141,13 @@ public class Events_Detail extends AppCompatActivity implements AppBarLayout.OnO
         float percentage = (float) Math.abs(verticalOffset) / (float) maxScroll;
 
         if (percentage == 0f && isHideToolbarView) {
-            date_bheviour.setVisibility(View.GONE);
+
+            frameLayout_dates.setVisibility(View.GONE);
             isHideToolbarView = !isHideToolbarView;
-        } else if (percentage < 0f && isHideToolbarView) {
-            date_bheviour.setVisibility(View.GONE);
+        }
+        else if (percentage < 0f && isHideToolbarView) {
+
+            frameLayout_dates.setVisibility(View.GONE);
             isHideToolbarView = !isHideToolbarView;
         }
     }
