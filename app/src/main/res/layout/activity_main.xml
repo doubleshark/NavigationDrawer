@@ -37,8 +37,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/white"
-        app:itemTextColor="@color/darkgray"
-        app:itemIconTint="@color/darkgray"
+        app:itemTextColor="@drawable/item_selected_drawer"
+        app:itemIconTint="@drawable/item_selected_drawer"
         app:menu="@menu/drawer_menu"
         android:layout_gravity="start"/>
 

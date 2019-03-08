@@ -1,9 +1,11 @@
 package com.example.srk.navigationdrawer.Activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -52,8 +54,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //Give the tool bar name
         actionBar = getSupportActionBar();
         getSupportActionBar().setTitle("Double Shark");
+
+        //this give the color of navigation bar color to black
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.black));
+        }
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -125,6 +133,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.logout:
                 Toast.makeText(MainActivity.this, "Log out", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.share:
+                Toast.makeText(MainActivity.this, "Share", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.send:
+                Toast.makeText(MainActivity.this, "Send", Toast.LENGTH_SHORT).show();
+                break;
         }
 
         mdrawerlayout.closeDrawer(GravityCompat.START);
