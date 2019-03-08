@@ -17,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
     ImageView image_splash;
     Animation fromtopbottom, smalltobig;
 
-    private static int SPLASH_TIME_OUT = 3500;
+    private static int SPLASH_TIME_OUT = 2000;
 
 
     @Override

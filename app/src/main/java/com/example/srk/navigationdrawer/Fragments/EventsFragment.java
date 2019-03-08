@@ -64,7 +64,7 @@ public class EventsFragment extends Fragment {
                     public void onItemClick(View view, int position) {
 
                         TextView title = (TextView)view.findViewById(R.id.title);
-                        String tit=title.getText().toString();
+                        String tit = title.getText().toString();
 
                         Intent intent = new Intent(view.getContext(), Events_Detail.class);
                         intent.putExtra("title",tit);

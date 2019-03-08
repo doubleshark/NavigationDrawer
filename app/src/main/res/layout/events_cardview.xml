@@ -32,9 +32,7 @@
                 android:layout_height="80dp"
                 android:src="@drawable/shadow"
                 android:layout_alignBottom="@id/img"
-                android:layout_width="match_parent"
-
-                />
+                android:layout_width="match_parent" />
             <ProgressBar
                 android:id="@+id/progress_load_photo"
                 android:layout_width="match_parent"
