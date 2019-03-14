@@ -2,60 +2,61 @@ package com.example.srk.navigationdrawer.Others;
 
 public class ActivitiesItem {
 
-    private String booktitle_tv;
-    private String accno_tv;
-    private String authorname_tv;
-    private String issuedate_tv;
-    private String returndate_tv;
+    private String booktitle;
+    private String accno;
+    private String authorname;
+    private String issuedate;
+    private String returndate;
 
-
-    public ActivitiesItem(String booktitle, String accno, String authername, String issuedate, String returndate) {
-
-        booktitle_tv = booktitle;
-        accno_tv = accno;
-        authorname_tv = authername;
-        issuedate_tv = issuedate;
-        returndate_tv = returndate;
+    public ActivitiesItem() {
 
     }
 
-    public String getBooktitle_tv() {
-        return booktitle_tv;
+    public ActivitiesItem(String booktitle, String accno, String authorname, String issuedate, String returndate) {
+        this.booktitle = booktitle;
+        this.accno = accno;
+        this.authorname = authorname;
+        this.issuedate = issuedate;
+        this.returndate = returndate;
     }
 
-    public void setBooktitle_tv(String booktitle_tv) {
-        this.booktitle_tv = booktitle_tv;
+    public String getBooktitle() {
+        return booktitle;
     }
 
-    public String getAccno_tv() {
-        return accno_tv;
+    public void setBooktitle(String booktitle) {
+        this.booktitle = booktitle;
     }
 
-    public void setAccno_tv(String accno_tv) {
-        this.accno_tv = accno_tv;
+    public String getAccno() {
+        return accno;
     }
 
-    public String getAuthorname_tv() {
-        return authorname_tv;
+    public void setAccno(String accno) {
+        this.accno = accno;
     }
 
-    public void setAuthorname_tv(String authorname_tv) {
-        this.authorname_tv = authorname_tv;
+    public String getAuthorname() {
+        return authorname;
     }
 
-    public String getIssuedate_tv() {
-        return issuedate_tv;
+    public void setAuthorname(String authorname) {
+        this.authorname = authorname;
     }
 
-    public void setIssuedate_tv(String issuedate_tv) {
-        this.issuedate_tv = issuedate_tv;
+    public String getIssuedate() {
+        return issuedate;
     }
 
-    public String getReturndate_tv() {
-        return returndate_tv;
+    public void setIssuedate(String issuedate) {
+        this.issuedate = issuedate;
     }
 
-    public void setReturndate_tv(String returndate_tv) {
-        this.returndate_tv = returndate_tv;
+    public String getReturndate() {
+        return returndate;
+    }
+
+    public void setReturndate(String returndate) {
+        this.returndate = returndate;
     }
 }
