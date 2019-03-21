@@ -27,7 +27,8 @@
             app:itemTextColor="@drawable/item_selected"
             app:menu="@menu/bottom_menu"
             android:background="#F3F2F2"
-            app:elevation="8dp"/>
+            app:elevation="8dp"
+            android:layout_gravity="bottom"/>
 
     </RelativeLayout>
 

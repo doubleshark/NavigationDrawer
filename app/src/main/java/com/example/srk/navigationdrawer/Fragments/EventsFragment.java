@@ -1,5 +1,6 @@
 package com.example.srk.navigationdrawer.Fragments;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.srk.navigationdrawer.Activity.Events_Detail;
 import com.example.srk.navigationdrawer.Adapter.Viewholder_Firebase_Events;
 import com.example.srk.navigationdrawer.Others.Getter_Setter;
@@ -26,13 +28,19 @@ public class EventsFragment extends Fragment {
     public static FirebaseDatabase mfirebaseDatabase;
     private DatabaseReference mdatabaseRef;
 
-    //private LottieAnimationView lottieAnimationView;
+    ProgressDialog progress;
+
+
+    private LottieAnimationView lottieAnimationView;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_events, container, false);
+
+        // Loading before show cardview in events fragments
+        lottieAnimationView = (LottieAnimationView) view.findViewById(R.id.lottie_view);
 
         //Initiate RecyclerView
         mrecycler = (RecyclerView) view.findViewById(R.id.recyclerview_events);
@@ -44,14 +52,16 @@ public class EventsFragment extends Fragment {
         mdatabaseRef = mfirebaseDatabase.getReference("Data");
         mdatabaseRef.keepSynced(true);
 
-        //lottieAnimationView = (LottieAnimationView) view.findViewById(R.id.lottie_event_loading);
 
         FirebaseRecyclerAdapter<Getter_Setter, Viewholder_Firebase_Events> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Getter_Setter, Viewholder_Firebase_Events>(Getter_Setter.class,
                 R.layout.events_cardview, Viewholder_Firebase_Events.class, mdatabaseRef) {
 
             @Override
             protected void populateViewHolder(Viewholder_Firebase_Events viewHolder, Getter_Setter model, int position) {
+
                 viewHolder.setDetails(getActivity(), model.getTitle(), model.getDescription(), model.getImage(), model.getTime());
+                //we gone the visibily of loading
+                lottieAnimationView.setVisibility(View.GONE);
             }
 
             @Override
