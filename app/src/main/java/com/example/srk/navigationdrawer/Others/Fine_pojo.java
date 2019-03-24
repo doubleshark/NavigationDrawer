@@ -2,32 +2,31 @@ package com.example.srk.navigationdrawer.Others;
 
 import java.util.ArrayList;
 
-public class Fine_ActivitiesItem {
+public class Fine_pojo {
 
-    private String booktitle;
-    private String accno;
-    private String authorname;
-    private String issuedate;
-    private String returndate;
+    String booktitle;
+    String accno;
+    String authorname;
+    String issuedate;
+    String returndate;
 
     public static ArrayList<Integer> selected = new ArrayList<>();
     public static boolean selecter = false;
 
-    public Fine_ActivitiesItem() {
+
+
+    public Fine_pojo(){
 
     }
 
-
-   /* public Fine_ActivitiesItem(String booktitle, String accno, String authername, String issuedate, String returndate) {
-
+    public Fine_pojo(String booktitle, String accno, String authorname, String issuedate, String returndate) {
         this.booktitle = booktitle;
         this.accno = accno;
         this.authorname = authorname;
         this.issuedate = issuedate;
         this.returndate = returndate;
-
     }
-*/
+
     public String getBooktitle() {
         return booktitle;
     }

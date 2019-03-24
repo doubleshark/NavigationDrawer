@@ -28,8 +28,6 @@ public class EventsFragment extends Fragment {
     public static FirebaseDatabase mfirebaseDatabase;
     private DatabaseReference mdatabaseRef;
 
-    ProgressDialog progress;
-
 
     private LottieAnimationView lottieAnimationView;
 
