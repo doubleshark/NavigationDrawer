@@ -99,8 +99,8 @@ public class DashboardFragment extends Fragment {
 
         ArrayList<PieEntry> yValues = new ArrayList<>();
 
-        yValues.add(new PieEntry(34f,"Party A"));
-        yValues.add(new PieEntry(23f,"Party B"));
+        yValues.add(new PieEntry(34f,"Bookbank"));
+        yValues.add(new PieEntry(23f,"Issue"));
 
         pieChart.animateXY(1000,1000, Easing.EaseInCubic);
 
