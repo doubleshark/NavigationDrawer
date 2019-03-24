@@ -18,7 +18,7 @@ public class Fine_ActivitiesItem {
     }
 
 
-    public Fine_ActivitiesItem(String booktitle, String accno, String authername, String issuedate, String returndate) {
+   /* public Fine_ActivitiesItem(String booktitle, String accno, String authername, String issuedate, String returndate) {
 
         this.booktitle = booktitle;
         this.accno = accno;
@@ -27,7 +27,7 @@ public class Fine_ActivitiesItem {
         this.returndate = returndate;
 
     }
-
+*/
     public String getBooktitle() {
         return booktitle;
     }

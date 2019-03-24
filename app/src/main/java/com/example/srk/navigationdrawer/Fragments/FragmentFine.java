@@ -12,8 +12,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.srk.navigationdrawer.Adapter.ActivitiesAdapter;
+import com.example.srk.navigationdrawer.Adapter.Viewholder_Firebase_Events;
+import com.example.srk.navigationdrawer.Adapter.fine;
 import com.example.srk.navigationdrawer.Others.ActivitiesItem;
+import com.example.srk.navigationdrawer.Others.Fine_ActivitiesItem;
 import com.example.srk.navigationdrawer.R;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,8 +35,8 @@ public class FragmentFine extends Fragment {
     public static FirebaseDatabase mfirebaseDatabase;
     private DatabaseReference mdatabaseRef;
 
-    ArrayList<ActivitiesItem> list;
-    ActivitiesAdapter activitiesAdapter;
+    //ArrayList<ActivitiesItem> list;
+    //ActivitiesAdapter activitiesAdapter;
 
     @Nullable
     @Override
@@ -43,13 +47,42 @@ public class FragmentFine extends Fragment {
         mrecyclerView = (RecyclerView) view.findViewById(R.id.issue_recyclerview);
         mrecyclerView.setHasFixedSize(true);
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        list = new ArrayList<ActivitiesItem>();
+        //list = new ArrayList<ActivitiesItem>();
 
 
         mfirebaseDatabase = FirebaseDatabase.getInstance();
         mdatabaseRef = mfirebaseDatabase.getReference("Fine");
         mdatabaseRef.keepSynced(true);
 
+        FirebaseRecyclerAdapter<Fine_ActivitiesItem, fine> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Fine_ActivitiesItem, fine>(Fine_ActivitiesItem.class, R.layout.fine_activities_item, fine.class, mdatabaseRef) {
+            @Override
+            protected void populateViewHolder(fine viewHolder, Fine_ActivitiesItem model, int position) {
+
+                viewHolder.setDetails(model.getBooktitle(), model.getAccno(), model.getAuthorname(), model.getIssuedate(), model.getReturndate());
+
+            }
+
+            @Override
+            public fine onCreateViewHolder(ViewGroup parent, int viewType) {
+                fine fine = super.onCreateViewHolder(parent, viewType);
+                fine.setOnClickListener(new fine.clickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+
+                    }
+
+                    @Override
+                    public void onItemLongClick(View view, int position) {
+
+                    }
+                });
+
+                return fine;
+
+            }
+        };
+
+/*
         mdatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -73,8 +106,9 @@ public class FragmentFine extends Fragment {
 
             }
         });
+*/
 
-
+        mrecyclerView.setAdapter(firebaseRecyclerAdapter);
         return view;
     }
 
