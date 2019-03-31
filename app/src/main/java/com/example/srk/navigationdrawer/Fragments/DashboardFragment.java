@@ -8,10 +8,13 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.srk.navigationdrawer.Activity.MainActivity;
 import com.example.srk.navigationdrawer.R;
 import com.example.srk.navigationdrawer.Adapter.ownPagerAdapter;
 import com.github.mikephil.charting.animation.Easing;
@@ -50,6 +53,16 @@ public class DashboardFragment extends Fragment {
 
         Timer timer=new Timer();
         timer.scheduleAtFixedRate(new MyTimer(),5000,6000);
+
+        CardView cardView = (CardView) v.findViewById(R.id.fineamount_cv);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Here we call function callfromDSfragment which are define in MainActivity class
+                ((MainActivity) getActivity()).callfromDSfragment();
+            }
+        });
 
         piechart();
         chartprogressbar();

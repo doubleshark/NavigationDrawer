@@ -30,7 +30,7 @@
             <ImageView
                 android:id="@+id/shadow_top"
                 android:layout_height="80dp"
-                android:src="@drawable/shadow"
+                app:srcCompat="@drawable/shadow"
                 android:layout_alignBottom="@id/img"
                 android:layout_width="match_parent" />
             <ProgressBar
@@ -53,7 +53,7 @@
                 android:layout_marginTop="-50dp"
                 >
                 <ImageView
-                    android:src="@drawable/ic_date"
+                    app:srcCompat="@drawable/ic_date"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:layout_marginLeft="5dp"

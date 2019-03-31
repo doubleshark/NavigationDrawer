@@ -64,7 +64,7 @@ public class FragmentFine extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull Fine_Viewholder_Adapter holder, int position, @NonNull Fine_pojo model) {
 
-                holder.setvalue(model.getBooktitle(), model.getAccno(), model.getAuthorname(), model.getIssuedate(), model.getReturndate());
+                holder.setvalue(model.getBooktitle(), model.getAccno(), model.getAuthorname(), model.getBooktype(), model.getFine());
 
                 holder.setOnClickListener(new Fine_Viewholder_Adapter.clickListener() {
                     @Override

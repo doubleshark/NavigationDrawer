@@ -41,7 +41,7 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -128,7 +128,7 @@
         android:elevation="8dp">
 
         <ImageView
-            android:src="@drawable/ic_date"
+            app:srcCompat="@drawable/ic_date"
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:layout_marginLeft="5dp"

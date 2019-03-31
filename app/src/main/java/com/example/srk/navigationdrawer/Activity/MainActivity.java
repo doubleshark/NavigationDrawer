@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,6 +25,7 @@ import com.example.srk.navigationdrawer.Fragments.ProfileFragment;
 import com.example.srk.navigationdrawer.Fragments.SearchFragment;
 import com.example.srk.navigationdrawer.Fragments.ActivitiesFragment;
 import com.example.srk.navigationdrawer.R;
+
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -130,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.activities:
                 bottomNavigationView.setSelectedItemId(R.id.activities);
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new ActivitiesFragment()).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment_container,new ActivitiesFragment(),"activities_tag").commit();
                 break;
             case R.id.logout:
                 Toast.makeText(MainActivity.this, "Log out", Toast.LENGTH_SHORT).show();
@@ -196,6 +198,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             backToast.show();
         }
         backPressedTime = System.currentTimeMillis();
+    }
+
+    public void callfromDSfragment() {
+
+        //After pass the excution from DS fragment we select activities fragment by bottomnavigationview
+        bottomNavigationView.setSelectedItemId(R.id.activities);
+
+        //Then we call method of Activities fragment
+//        ActivitiesFragment Fragment = (ActivitiesFragment) getSupportFragmentManager().findFragmentByTag("activities_tag");
+//        Fragment.callfromMainActivity();
+
+
     }
 
 

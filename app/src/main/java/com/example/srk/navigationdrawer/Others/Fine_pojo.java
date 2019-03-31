@@ -7,11 +7,12 @@ public class Fine_pojo {
     String booktitle;
     String accno;
     String authorname;
-    String issuedate;
-    String returndate;
+    String booktype;
+    String fine;
 
     public static ArrayList<Integer> selected = new ArrayList<>();
     public static boolean selecter = false;
+    public static int fineamount = 0;
 
 
 
@@ -19,12 +20,12 @@ public class Fine_pojo {
 
     }
 
-    public Fine_pojo(String booktitle, String accno, String authorname, String issuedate, String returndate) {
+    public Fine_pojo(String booktitle, String accno, String authorname, String booktype, String fine) {
         this.booktitle = booktitle;
         this.accno = accno;
         this.authorname = authorname;
-        this.issuedate = issuedate;
-        this.returndate = returndate;
+        this.booktype = booktype;
+        this.fine = fine;
     }
 
     public String getBooktitle() {
@@ -51,19 +52,19 @@ public class Fine_pojo {
         this.authorname = authorname;
     }
 
-    public String getIssuedate() {
-        return issuedate;
+    public String getBooktype() {
+        return booktype;
     }
 
-    public void setIssuedate(String issuedate) {
-        this.issuedate = issuedate;
+    public void setBooktype(String booktype) {
+        this.booktype = booktype;
     }
 
-    public String getReturndate() {
-        return returndate;
+    public String getFine() {
+        return fine;
     }
 
-    public void setReturndate(String returndate) {
-        this.returndate = returndate;
+    public void setFine(String fine) {
+        this.fine = fine;
     }
 }

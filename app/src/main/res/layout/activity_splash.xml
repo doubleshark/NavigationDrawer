@@ -14,7 +14,7 @@
         android:id="@+id/image_splash"
         android:layout_width="310dp"
         android:layout_height="310dp"
-        android:src="@drawable/booksplash"
+        app:srcCompat="@drawable/booksplash"
         />
 
     <TextView

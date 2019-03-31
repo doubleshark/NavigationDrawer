@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,13 +15,16 @@ import com.example.srk.navigationdrawer.R;
 public class Fine_Viewholder_Adapter extends RecyclerView.ViewHolder {
 
     View view;
-    CardView card_outer,card_inner;
+    CardView card_inner;
+    //FrameLayout stoke_framelayout;
+
+    String finevalue = "0";
 
     public Fine_Viewholder_Adapter(@NonNull View itemView) {
         super(itemView);
 
         view = itemView;
-        card_outer = itemView.findViewById(R.id.card_outer);
+        //stoke_framelayout = itemView.findViewById(R.id.stoke_framelayout);
         card_inner = itemView.findViewById(R.id.card1);
 
 
@@ -34,21 +38,24 @@ public class Fine_Viewholder_Adapter extends RecyclerView.ViewHolder {
                 // use for select the item
                 if (Fine_pojo.selecter && !(Fine_pojo.selected.contains((Integer)position))) {
 
-                    card_outer.setCardBackgroundColor(Color.rgb(98, 0, 238));
+                    //stoke_framelayout.setBackgroundColor(Color.rgb(98, 0, 238));
                     card_inner.setCardBackgroundColor(Color.rgb(224, 214, 238));
+
                     Fine_pojo.selected.add((Integer) position);
-                    Toast.makeText(v.getContext(), "" + Fine_pojo.selected, Toast.LENGTH_SHORT).show();
+                    Fine_pojo.fineamount += Integer.parseInt(finevalue);
+                    Toast.makeText(v.getContext(), "" + Fine_pojo.fineamount, Toast.LENGTH_SHORT).show();
 
                 }
 
                 // use for unselect the item
                 else if (Fine_pojo.selecter && Fine_pojo.selected.contains((Integer)position)){
 
-                    card_outer.setCardBackgroundColor(Color.parseColor("#00000000"));
+                    //stoke_framelayout.setBackgroundColor(Color.parseColor("#00000000"));
                     card_inner.setCardBackgroundColor(Color.parseColor("#ffffff"));
 
                     Fine_pojo.selected.remove((Integer) position);
-                    Toast.makeText(v.getContext(), "" + Fine_pojo.selected, Toast.LENGTH_SHORT).show();
+                    Fine_pojo.fineamount -= Integer.parseInt(finevalue);
+                    Toast.makeText(v.getContext(), "" + Fine_pojo.fineamount, Toast.LENGTH_SHORT).show();
 
                 }
                 else {
@@ -59,6 +66,7 @@ public class Fine_Viewholder_Adapter extends RecyclerView.ViewHolder {
                 // this help to active or deactive the long press selectetion
                 if (Fine_pojo.selected.isEmpty()) {
                     Fine_pojo.selecter = false;
+                    Fine_pojo.fineamount = 0;
                 }
 
 
@@ -72,9 +80,11 @@ public class Fine_Viewholder_Adapter extends RecyclerView.ViewHolder {
                 mclickListener.onItemLongClick(v,getAdapterPosition());
 
                 if (!Fine_pojo.selecter) {
-                    card_outer.setCardBackgroundColor(Color.rgb(98, 0, 238));
+
+                    //stoke_framelayout.setBackgroundColor(Color.rgb(98, 0, 238));
                     card_inner.setCardBackgroundColor(Color.rgb(224, 214, 238));
-                    Toast.makeText(v.getContext(), "" + Fine_pojo.selected, Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(v.getContext(), "" + Fine_pojo.fineamount, Toast.LENGTH_SHORT).show();
                     Fine_pojo.selecter = true;
                 }
 
@@ -84,19 +94,21 @@ public class Fine_Viewholder_Adapter extends RecyclerView.ViewHolder {
         });
     }
 
-    public void setvalue(String booktitle, String accno, String authorname, String issuedate, String returndate) {
+    public void setvalue(String booktitle, String accno, String authorname, String booktype, String fine) {
 
         TextView booktitle_tv = itemView.findViewById(R.id.booktitle_tv);
         TextView accno_tv = itemView.findViewById(R.id.accno_tv);
         TextView authorname_tv = itemView.findViewById(R.id.authorname_tv);
-        TextView issuedate_tv = itemView.findViewById(R.id.issuedate_tv);
-        TextView returndate_tv = itemView.findViewById(R.id.returndate_tv);
+        TextView booktype_tv = itemView.findViewById(R.id.booktype_tv);
+        TextView fine_tv = itemView.findViewById(R.id.fine_tv);
 
         booktitle_tv.setText(booktitle);
         accno_tv.setText(accno);
         authorname_tv.setText(authorname);
-        issuedate_tv.setText(issuedate);
-        returndate_tv.setText(returndate);
+        booktype_tv.setText(booktype);
+        fine_tv.setText(fine+" ₹");
+
+        finevalue = fine;
 
     }
 

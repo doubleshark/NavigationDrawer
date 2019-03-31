@@ -1,5 +1,6 @@
 package com.example.srk.navigationdrawer.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,7 +10,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.srk.navigationdrawer.Activity.MainActivity;
 import com.example.srk.navigationdrawer.R;
 import com.example.srk.navigationdrawer.Adapter.ViewPagerAdapter;
 
@@ -50,4 +53,9 @@ public class ActivitiesFragment extends Fragment {
 
     }
 
+
+//       public void callfromMainActivity() {
+//
+//       Toast.makeText(getActivity(), "Activies Fragment called", Toast.LENGTH_SHORT).show();
+//    }
 }

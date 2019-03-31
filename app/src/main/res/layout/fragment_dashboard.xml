@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
@@ -42,7 +43,7 @@
         </RelativeLayout>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/cardview1"
+            android:id="@+id/fineamount_cv"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             app:cardCornerRadius="8dp"
@@ -63,7 +64,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/ic_account_balance_wallet_black_24dp"/>
+                    app:srcCompat="@drawable/ic_account_balance_wallet_black_24dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -89,7 +90,7 @@
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_rupee_indian"
+                    app:srcCompat="@drawable/ic_rupee_indian"
                     android:layout_alignParentEnd="true"
                     android:layout_marginRight="10dp"/>
 
@@ -103,7 +104,7 @@
             android:id="@+id/piechart"
             android:layout_width="350dp"
             android:layout_height="350dp"
-            android:layout_below="@id/cardview1"
+            android:layout_below="@id/fineamount_cv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"/>
 
