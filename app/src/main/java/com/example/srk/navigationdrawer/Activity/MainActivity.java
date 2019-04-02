@@ -3,6 +3,8 @@ package com.example.srk.navigationdrawer.Activity;
 import android.content.Intent;
 import android.os.Build;
 import androidx.annotation.NonNull;
+
+import com.example.srk.navigationdrawer.Others.myinterface;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -13,6 +15,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -39,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private long backPressedTime;  //slider activity
     private Toast backToast;
+
+    //myinterface my;
 
 
 
@@ -199,6 +204,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         backPressedTime = System.currentTimeMillis();
     }
 
+
     public void callfromDSfragment() {
 
         //After pass the excution from DS fragment we select activities fragment by bottomnavigationview
@@ -208,8 +214,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        ActivitiesFragment Fragment = (ActivitiesFragment) getSupportFragmentManager().findFragmentByTag("activities_tag");
 //        Fragment.callfromMainActivity();
 
+        //callfromMainActivity("hello");
+
+       // my.myfunction();
+
+
+
 
     }
+
+//    public  void initmyinterface(myinterface inter) {
+//
+//        my = inter;
+//        Log.e(TAG, my.toString());
+//    }
 
 
 

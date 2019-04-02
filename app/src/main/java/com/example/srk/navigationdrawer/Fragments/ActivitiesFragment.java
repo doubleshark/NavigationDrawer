@@ -1,14 +1,19 @@
 package com.example.srk.navigationdrawer.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.srk.navigationdrawer.Activity.MainActivity;
+import com.example.srk.navigationdrawer.Others.myinterface;
 import com.google.android.material.tabs.TabLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.srk.navigationdrawer.R;
 import com.example.srk.navigationdrawer.Adapter.ViewPagerAdapter;
@@ -19,6 +24,9 @@ public class ActivitiesFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
+
+    //private Tablistner tablistner;
+
 
     @Nullable
     @Override
@@ -40,6 +48,7 @@ public class ActivitiesFragment extends Fragment {
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_issue);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_fine);
 
+
         return v;
 
     }
@@ -54,5 +63,31 @@ public class ActivitiesFragment extends Fragment {
 //       public void callfromMainActivity() {
 //
 //       Toast.makeText(getActivity(), "Activies Fragment called", Toast.LENGTH_SHORT).show();
+//    }
+
+//    public interface Tablistner {
+//
+//        void callfromMainActivity(String text);
+//    }
+
+//    @Override
+//    public void onAttach(@NonNull Context context) {
+//        super.onAttach(context);
+//
+//        MainActivity mainActivity = (MainActivity) context;
+//        mainActivity.initmyinterface(this);
+//
+////        try {
+////            tablistner = (Tablistner) context;
+////        }
+////        catch (ClassCastException e) {
+////            throw new ClassCastException(context.toString()+"must implement Tablistner");
+////        }
+//    }
+
+//    @Override
+//    public void myfunction() {
+//
+//        Toast.makeText(getActivity(), "hi", Toast.LENGTH_SHORT).show();
 //    }
 }
