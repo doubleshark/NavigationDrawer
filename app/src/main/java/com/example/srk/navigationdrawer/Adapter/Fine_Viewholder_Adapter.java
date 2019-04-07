@@ -5,12 +5,16 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.srk.navigationdrawer.Others.Fine_pojo;
 import com.example.srk.navigationdrawer.R;
 import com.google.android.material.card.MaterialCardView;
+
+import static androidx.constraintlayout.widget.ConstraintSet.GONE;
+import static androidx.constraintlayout.widget.ConstraintSet.VISIBLE;
 
 public class Fine_Viewholder_Adapter extends RecyclerView.ViewHolder {
 
@@ -26,6 +30,7 @@ public class Fine_Viewholder_Adapter extends RecyclerView.ViewHolder {
         view = itemView;
         //stoke_framelayout = itemView.findViewById(R.id.stoke_framelayout);
         fine_materialcard = itemView.findViewById(R.id.fine_materialcard);
+
 
 
         itemView.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +74,7 @@ public class Fine_Viewholder_Adapter extends RecyclerView.ViewHolder {
                 if (Fine_pojo.selected.isEmpty()) {
                     Fine_pojo.selecter = false;
                     Fine_pojo.fineamount = 0;
+
                 }
 
 
@@ -89,12 +95,14 @@ public class Fine_Viewholder_Adapter extends RecyclerView.ViewHolder {
 
                     Toast.makeText(v.getContext(), "" + Fine_pojo.fineamount, Toast.LENGTH_SHORT).show();
                     Fine_pojo.selecter = true;
+
                 }
 
 
                 return false;
             }
         });
+
     }
 
     public void setvalue(String booktitle, String accno, String authorname, String booktype, String fine) {

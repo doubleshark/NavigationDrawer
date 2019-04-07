@@ -10,12 +10,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.srk.navigationdrawer.Adapter.Fine_Viewholder_Adapter;
 import com.example.srk.navigationdrawer.Others.Fine_pojo;
 import com.example.srk.navigationdrawer.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -29,6 +33,8 @@ public class FragmentFine extends Fragment {
     public static FirebaseDatabase mfirebaseDatabase;
     private DatabaseReference mdatabaseRef;
     FirebaseRecyclerAdapter adapter;
+
+    FloatingActionButton mfine_fab;
 
 
     @Nullable
@@ -47,6 +53,19 @@ public class FragmentFine extends Fragment {
         // when fragment is create or restart so all this 2 are in initial stage means card are non selected
         Fine_pojo.selected.clear();
         Fine_pojo.selecter = false;
+
+        mfine_fab = view.findViewById(R.id.fine_fab);
+        mfine_fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Toast.makeText(getActivity(), ""+Fine_pojo.fineamount+" paid", Toast.LENGTH_SHORT).show();
+
+                Snackbar.make(view, ""+Fine_pojo.fineamount+" ₹ fine paid", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+
+            }
+        });
 
 
         Query query = mdatabaseRef.limitToLast(50);
@@ -67,12 +86,15 @@ public class FragmentFine extends Fragment {
 
                         //write task of onclick in adapter to work correctly
 
+
+
                     }
 
                     @Override
                     public void onItemLongClick(View view, int position) {
 
                         //write task of onlongclick in adapter to work correctly
+
 
                     }
                 });
