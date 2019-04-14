@@ -61,8 +61,11 @@ public class FragmentFine extends Fragment {
 
                 //Toast.makeText(getActivity(), ""+Fine_pojo.fineamount+" paid", Toast.LENGTH_SHORT).show();
 
-                Snackbar.make(view, ""+Fine_pojo.fineamount+" ₹ fine paid", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, ""+Fine_pojo.fineamount+" ₹ fine paid", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+
+                Fine_bottomsheetdialog fineBottomsheetdialog = new Fine_bottomsheetdialog();
+                fineBottomsheetdialog.show(getChildFragmentManager(),"finebottomsheet");
 
             }
         });
