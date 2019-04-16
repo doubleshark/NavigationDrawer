@@ -56,16 +56,21 @@ public class FragmentFine extends Fragment {
 
         mfine_fab = view.findViewById(R.id.fine_fab);
         mfine_fab.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
-                //Toast.makeText(getActivity(), ""+Fine_pojo.fineamount+" paid", Toast.LENGTH_SHORT).show();
+                if (Fine_pojo.fineamount > 0) {
 
-//                Snackbar.make(view, ""+Fine_pojo.fineamount+" ₹ fine paid", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+                    Fine_bottomsheetdialog fineBottomsheetdialog = new Fine_bottomsheetdialog();
+                    fineBottomsheetdialog.show(getChildFragmentManager(), "finebottomsheet");
 
-                Fine_bottomsheetdialog fineBottomsheetdialog = new Fine_bottomsheetdialog();
-                fineBottomsheetdialog.show(getChildFragmentManager(),"finebottomsheet");
+                }
+
+                else {
+
+                    Toast.makeText(getActivity(), "first select something", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

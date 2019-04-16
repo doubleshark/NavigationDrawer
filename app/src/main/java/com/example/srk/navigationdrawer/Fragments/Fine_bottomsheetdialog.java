@@ -40,11 +40,14 @@ public class Fine_bottomsheetdialog extends BottomSheetDialogFragment {
 
     View view;
 
-    private String m_id = "hDjofc47534841725025";
-    private String customer_id = "123";
-    private String order_id = UUID.randomUUID().toString().substring(0,28);
-    private String url = "https://double-shark.000webhostapp.com/Paytm_php/generateChecksum.php";
-    private String callbackurl = "https://pguat.paytm.com/paytmchecksum/paytmCallback.jsp";
+    String m_id = "hDjofc47534841725025";
+    String customer_id = "123";
+    String order_id = UUID.randomUUID().toString().substring(0,28);
+    String url = "https://double-shark.000webhostapp.com/Paytm_php/generateChecksum.php";
+    String callbackurl = "https://pguat.paytm.com/paytmchecksum/paytmCallback.jsp";
+
+    TextView fine_amount_bs;
+    Button payment_btn_BS;
 
 
     @Nullable
@@ -53,16 +56,21 @@ public class Fine_bottomsheetdialog extends BottomSheetDialogFragment {
 
         view = inflater.inflate(R.layout.bottom_sheet_fine,container,false);
 
-        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
+
+        fine_amount_bs = view.findViewById(R.id.fine_amount_bs);
+        fine_amount_bs.setText("₹ "+Integer.toString(Fine_pojo.fineamount));
+
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS}, 101);
         }
 
 
-        Button button = view.findViewById(R.id.fine_payment_BS);
-        button.setOnClickListener(new View.OnClickListener() {
+        payment_btn_BS = view.findViewById(R.id.payment_btn_BS);
+        payment_btn_BS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Toast.makeText(getActivity(), ""+Fine_pojo.fineamount, Toast.LENGTH_SHORT).show();
                 Paytm_payment();
             }
         });
@@ -72,8 +80,7 @@ public class Fine_bottomsheetdialog extends BottomSheetDialogFragment {
 
     private void Paytm_payment() {
 
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -91,7 +98,7 @@ public class Fine_bottomsheetdialog extends BottomSheetDialogFragment {
                         paramMap.put( "ORDER_ID" , order_id);
                         paramMap.put( "CUST_ID" , customer_id);
                         paramMap.put( "CHANNEL_ID" , "WAP");
-                        paramMap.put( "TXN_AMOUNT" , "100.00");
+                        paramMap.put( "TXN_AMOUNT" , Integer.toString(Fine_pojo.fineamount));
                         paramMap.put( "WEBSITE" , "WEBSTAGING");
                         paramMap.put( "INDUSTRY_TYPE_ID" , "Retail");
                         paramMap.put( "CALLBACK_URL", callbackurl);
@@ -176,7 +183,7 @@ public class Fine_bottomsheetdialog extends BottomSheetDialogFragment {
                 paramMap.put( "ORDER_ID" , order_id);
                 paramMap.put( "CUST_ID" , customer_id);
                 paramMap.put( "CHANNEL_ID" , "WAP");
-                paramMap.put( "TXN_AMOUNT" , "100.12");
+                paramMap.put( "TXN_AMOUNT" , Integer.toString(Fine_pojo.fineamount));
                 paramMap.put( "WEBSITE" , "WEBSTAGING");
                 paramMap.put( "INDUSTRY_TYPE_ID" , "Retail");
                 paramMap.put( "CALLBACK_URL", callbackurl);
@@ -186,8 +193,6 @@ public class Fine_bottomsheetdialog extends BottomSheetDialogFragment {
         };
 
         requestQueue.add(stringRequest);
-
-
 
 
     }
