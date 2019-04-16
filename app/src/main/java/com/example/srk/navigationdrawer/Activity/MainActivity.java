@@ -142,7 +142,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(MainActivity.this, "Log out", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.share:
-                Toast.makeText(MainActivity.this, "Share", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "Share", Toast.LENGTH_SHORT).show();
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,"This is Double Shark App \n\n https://www.youtube.com/watch?v=oRZ0cfZ9SeU ");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+
                 break;
             case R.id.send:
                 Toast.makeText(MainActivity.this, "Send", Toast.LENGTH_SHORT).show();

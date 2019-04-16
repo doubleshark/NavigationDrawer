@@ -46,6 +46,7 @@
         android:src="@drawable/ic_money_white"
         android:backgroundTint="@color/colorPrimary"
         android:clickable="true"
-        app:fabSize="normal"/>
+        app:fabSize="normal"
+        app:backgroundTint="@color/colorPrimary"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
